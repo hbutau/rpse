@@ -135,23 +135,23 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+            <form id="whatsapp-contact-form" action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="name" id="contact-name" class="form-control" placeholder="Your Name" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="email" id="contact-email" placeholder="Your Email" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" class="form-control" name="subject" id="contact-subject" placeholder="Subject" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <textarea class="form-control" name="message" id="contact-message" rows="6" placeholder="Message" required=""></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -159,7 +159,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit">Send via WhatsApp</button>
                 </div>
 
               </div>
@@ -254,6 +254,46 @@
 
   <!-- Main JS File -->
   <script src="static/js/main.js"></script>
+
+  <!-- WhatsApp Contact Form Script -->
+  <script>
+    (function() {
+      'use strict';
+
+      const whatsappForm = document.getElementById('whatsapp-contact-form');
+      
+      if (whatsappForm) {
+        whatsappForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Get form values
+          const name = document.getElementById('contact-name').value.trim();
+          const email = document.getElementById('contact-email').value.trim();
+          const subject = document.getElementById('contact-subject').value.trim();
+          const message = document.getElementById('contact-message').value.trim();
+
+          // Format the WhatsApp message
+          const whatsappMessage = `*New Contact Request*\n\n` +
+                                  `*Name:* ${name}\n` +
+                                  `*Email:* ${email}\n` +
+                                  `*Subject:* ${subject}\n\n` +
+                                  `*Message:*\n${message}`;
+
+          // Encode the message for URL
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+
+          // WhatsApp phone number (Zimbabwe format without + and spaces)
+          const phoneNumber = '263776010923';
+
+          // Create WhatsApp link
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+          // Open WhatsApp in a new window
+          window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+    })();
+  </script>
 
 </body>
 
