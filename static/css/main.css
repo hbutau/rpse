@@ -2866,3 +2866,100 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/*--------------------------------------------------------------
+# WhatsApp Contact Box Styles
+--------------------------------------------------------------*/
+.whatsapp-contact-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-contact-box h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c4964;
+}
+
+.whatsapp-contact-box p {
+  color: #6c757d;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.whatsapp-features {
+  margin-bottom: 30px;
+}
+
+.whatsapp-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #2c4964;
+}
+
+.whatsapp-feature i {
+  color: #25D366;
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.whatsapp-feature span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.whatsapp-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background: #25D366;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+  background: #20BA5A;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.whatsapp-button span {
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .whatsapp-contact-box {
+    padding: 30px 20px;
+  }
+  
+  .whatsapp-contact-box h3 {
+    font-size: 24px;
+  }
+  
+  .whatsapp-button {
+    padding: 14px 30px;
+    font-size: 16px;
+  }
+}
