@@ -45,8 +45,8 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="static/img/logo.png" alt=""> -->
-        <h1 class="sitename">UpConstruction</h1> <span>.</span>
+        <img src="static/img/logo1.png" style="width:70%" alt="">
+	<!--<h1 class="sitename">UpConstruction</h1> <span>.</span>-->
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -55,24 +55,6 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -84,7 +66,7 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" style="background-image: url(static/img/page-title-bg.jpg);">
+    <div class="page-title dark-background" style="background-image: url(static/img/1920/cr4.png);">
       <div class="container position-relative">
         <h1>Contact</h1>
         <nav class="breadcrumbs">
@@ -135,35 +117,23 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
+            <form id="contactForm" class="row g-3">
+  <div class="col-md-6">
+    <input type="text" id="name" class="form-control" placeholder="Name" required>
+  </div>
+  <div class="col-md-6">
+    <input type="email" id="email" class="form-control" placeholder="Email" required>
+  </div>
+  <div class="col-12">
+    <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+  </div>
+  <div class="col-12">
+    <textarea id="message" class="form-control" placeholder="Message" rows="4" required></textarea>
+  </div>
+  <div class="col-12">
+    <button type="submit" id="submitBtn" class="btn btn-primary">Send to WhatsApp</button>
+  </div>
+</form>
           </div><!-- End Contact Form -->
 
         </div>
@@ -253,8 +223,22 @@
   <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
 
   <!-- Main JS File -->
-  <script src="static/js/main.js"></script>
+  <script src="static/js/main.js"> </script>
+  <script>
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();  
 
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  const text = `*_*RPSE WEBSITE REDIRECT CLIENT*_*\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+  const encoded = encodeURIComponent(text);
+
+  window.open(`https://wa.me/263777853439?text=${encoded}`, '_blank');
+});
+</script>
 </body>
 
 </html>
