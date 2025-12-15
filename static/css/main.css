@@ -143,14 +143,17 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0);
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --background-color: rgba(255, 255, 255, 1);
+  --default-color: #3c3c3c;
+  --heading-color: #3c3c3c;
+  --nav-color: #3c3c3c;
+  --nav-hover-color: #3c3c3c;
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo img {
